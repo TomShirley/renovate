@@ -1,3 +1,5 @@
+// Doesn't work with ifSystemSupportsGradle
+/* eslint jest/no-standalone-expect: 0 */
 import fs from 'fs-extra';
 import * as upath from 'upath';
 import { exec as _exec } from 'child_process';
@@ -247,7 +249,7 @@ describe('manager/gradle', () => {
           `${config.localDir}/renovate-plugin.gradle`,
           fs.constants.F_OK
         )
-      ).resolves.toBe(undefined);
+      ).resolves.toBeUndefined();
       expect(execSnapshots).toMatchSnapshot();
     });
 

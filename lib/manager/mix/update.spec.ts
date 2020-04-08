@@ -17,7 +17,7 @@ describe('lib/manager/mix/update', () => {
       };
       const res = updateDependency({ fileContent: sample, upgrade });
       expect(res).not.toEqual(sample);
-      expect(res.includes(upgrade.newValue)).toBe(true);
+      expect(res.includes(upgrade.newValue)).toContain(true);
     });
     it('return the same', () => {
       const upgrade = {

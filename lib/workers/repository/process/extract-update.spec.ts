@@ -22,7 +22,8 @@ describe('workers/repository/process/extract-update', () => {
         repoIsOnboarded: true,
         suppressNotifications: ['deprecationWarningIssues'],
       };
-      await extractAndUpdate(config);
+      const extractAndUpdateResult = await extractAndUpdate(config);
+      expect(extractAndUpdateResult).toBeTruthy();
     });
   });
 });

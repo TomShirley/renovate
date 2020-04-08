@@ -310,7 +310,7 @@ describe('manager/npm/extract', () => {
   });
   describe('.postExtract()', () => {
     it('runs', async () => {
-      await npmExtract.postExtract([]);
+      await expect(npmExtract.postExtract([])).resolves.not.toThrow();
     });
   });
 });

@@ -112,7 +112,7 @@ describe('manager/dockerfile/update', () => {
         upgrade: upgrade2,
       });
       expect(res).toMatchSnapshot();
-      expect(res.includes('as stage-1')).toBe(true);
+      expect(res.includes('as stage-1')).toContain(true);
     });
     it('replaces COPY --from', () => {
       const fileContent =
@@ -128,7 +128,7 @@ describe('manager/dockerfile/update', () => {
       };
       const res = dockerfile.updateDependency({ fileContent, upgrade });
       expect(res).toMatchSnapshot();
-      expect(res.includes(upgrade.newValue)).toBe(true);
+      expect(res.includes(upgrade.newValue)).toContain(true);
     });
   });
 });

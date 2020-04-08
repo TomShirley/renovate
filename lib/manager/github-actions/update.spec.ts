@@ -21,7 +21,7 @@ describe('manager/github-actions/update', () => {
       };
       const res = updateDependency({ fileContent: workflow1, upgrade });
       expect(res).not.toEqual(workflow1);
-      expect(res.includes(upgrade.newDigest)).toBe(true);
+      expect(res.includes(upgrade.newDigest)).toContain(true);
     });
     it('returns same', () => {
       const upgrade = {
@@ -51,7 +51,7 @@ describe('manager/github-actions/update', () => {
       };
       const res = updateDependency({ fileContent: workflow2, upgrade });
       expect(res).not.toEqual(workflow2);
-      expect(res.includes(upgrade.newDigest)).toBe(true);
+      expect(res.includes(upgrade.newDigest)).toContain(true);
     });
     it('returns same in yaml file', () => {
       const upgrade = {

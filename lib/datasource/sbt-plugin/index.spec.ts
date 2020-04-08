@@ -105,7 +105,7 @@ describe('datasource/sbt', () => {
           depName: 'org.scalatest:scalatest',
           registryUrls: ['https://failed_repo/maven'],
         })
-      ).toEqual(null);
+      ).toBeNull();
       expect(
         await getPkgReleases({
           versioning: mavenVersioning.id,
@@ -113,7 +113,7 @@ describe('datasource/sbt', () => {
           depName: 'org.scalatest:scalaz',
           registryUrls: [],
         })
-      ).toEqual(null);
+      ).toBeNull();
     });
     it('fetches sbt plugins', async () => {
       expect(

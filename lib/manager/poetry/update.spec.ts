@@ -25,7 +25,7 @@ describe('manager/poetry/update', () => {
         upgrade,
       });
       expect(res).not.toEqual(pyproject1toml);
-      expect(res.includes(upgrade.newValue)).toBe(true);
+      expect(res.includes(upgrade.newValue)).toContain(true);
       expect(res).toMatchSnapshot();
     });
     it('handles already replace values', () => {
@@ -53,7 +53,7 @@ describe('manager/poetry/update', () => {
         upgrade,
       });
       expect(res).not.toEqual(pyproject2toml);
-      expect(res.includes(upgrade.newValue)).toBe(true);
+      expect(res.includes(upgrade.newValue)).toContain(true);
       expect(res).toMatchSnapshot();
     });
     it('replaces nested value for path dependency', () => {
@@ -68,7 +68,7 @@ describe('manager/poetry/update', () => {
         upgrade,
       });
       expect(res).not.toEqual(pyproject2toml);
-      expect(res.includes(upgrade.newValue)).toBe(true);
+      expect(res.includes(upgrade.newValue)).toContain(true);
       expect(res).toMatchSnapshot();
     });
     it('gracefully handles nested value for path dependency without version field', () => {
@@ -96,7 +96,7 @@ describe('manager/poetry/update', () => {
         upgrade,
       });
       expect(res).not.toEqual(pyproject1toml);
-      expect(res.includes(upgrade.newValue)).toBe(true);
+      expect(res.includes(upgrade.newValue)).toContain(true);
       expect(res).toMatchSnapshot();
     });
     it('upgrades dev-dependencies', () => {
@@ -111,14 +111,14 @@ describe('manager/poetry/update', () => {
         upgrade,
       });
       expect(res).not.toEqual(pyproject1toml);
-      expect(res.includes(upgrade.newValue)).toBe(true);
+      expect(res.includes(upgrade.newValue)).toContain(true);
       expect(res).toMatchSnapshot();
     });
     it('returns null if upgrade is null', () => {
       const res = updateDependency({ fileContent: null, upgrade: null });
       expect(res).toBeNull();
     });
-    it('handles nonexistent depType gracefully', () => {
+    it('handles nonexistent depType gracefully: invalid', () => {
       const upgrade = {
         depName: 'dev1',
         depType: '!invalid-dev-type!',
@@ -131,7 +131,7 @@ describe('manager/poetry/update', () => {
       });
       expect(res).toBeNull();
     });
-    it('handles nonexistent depType gracefully', () => {
+    it('handles nonexistent depType gracefully: dev-dependencies', () => {
       const upgrade = {
         depName: 'dev_dev1',
         depType: 'dev-dependencies',

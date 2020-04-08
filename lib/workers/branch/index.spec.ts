@@ -116,6 +116,7 @@ describe('workers/branch', () => {
         isModified: false,
       } as never);
       await branchWorker.processBranch(config);
+      expect(parent.getParentBranch).toHaveBeenCalled();
     });
     it('skips branch if closed major PR found', async () => {
       schedule.isScheduledNow.mockReturnValueOnce(false);

@@ -28,7 +28,7 @@ describe('lib/manager/cocoapods/update', () => {
       };
       const res = updateDependency({ fileContent, upgrade });
       expect(res).not.toEqual(fileContent);
-      expect(res.includes(upgrade.newValue)).toBe(true);
+      expect(res.includes(upgrade.newValue)).toContain(true);
     });
     it('returns same content', () => {
       const upgrade = {

@@ -196,7 +196,7 @@ describe('lib/manager/cargo/update', () => {
         cargo1toml
       );
     });
-    it('does not update in case of error', () => {
+    it('does not update in case of error: nested version true', () => {
       const upgrade = {
         depName: 'libc',
         devType: 'dependencies',
@@ -207,7 +207,7 @@ describe('lib/manager/cargo/update', () => {
         cargo1toml
       );
     });
-    it('does not update in case of error', () => {
+    it('does not update in case of error: nested version false', () => {
       const upgrade = {
         depName: 'pcap-sys',
         devType: 'dependencies',

@@ -197,7 +197,7 @@ describe('api/docker', () => {
         { lookupName: '123456789.dkr.ecr.us-east-1.amazonaws.com/node' },
         'some-tag'
       );
-      expect(res).toBe(null);
+      expect(res).toBeNull();
       AWSMock.restore('ECR');
     });
     it('continues without token if ECR authentication fails', async () => {
@@ -221,7 +221,7 @@ describe('api/docker', () => {
         { lookupName: '123456789.dkr.ecr.us-east-1.amazonaws.com/node' },
         'some-tag'
       );
-      expect(res).toBe(null);
+      expect(res).toBeNull();
       AWSMock.restore('ECR');
     });
     it('continues without token, when no header is present', async () => {

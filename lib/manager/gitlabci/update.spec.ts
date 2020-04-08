@@ -18,7 +18,7 @@ describe('manager/gitlabci/update', () => {
       };
       const res = updateDependency({ fileContent: yamlFile, upgrade });
       expect(res).not.toEqual(yamlFile);
-      expect(res.includes(upgrade.newDigest)).toBe(true);
+      expect(res.includes(upgrade.newDigest)).toContain(true);
     });
     it('returns same', () => {
       const upgrade = {
@@ -71,7 +71,7 @@ describe('manager/gitlabci/update', () => {
       };
       const res = updateDependency({ fileContent: yamlFile, upgrade });
       expect(res).not.toEqual(yamlFile);
-      expect(res.includes(upgrade.newDigest)).toBe(true);
+      expect(res.includes(upgrade.newDigest)).toContain(true);
     });
     it('returns null if service-image mismatch', () => {
       const upgrade = {

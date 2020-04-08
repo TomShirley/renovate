@@ -20,7 +20,7 @@ describe('manager/droneci/update', () => {
       };
       const res = updateDependency({ fileContent: droneYAML, upgrade });
       expect(res).not.toEqual(droneYAML);
-      expect(res.includes(upgrade.newDigest)).toBe(true);
+      expect(res.includes(upgrade.newDigest)).toContain(true);
     });
 
     it('returns same', () => {

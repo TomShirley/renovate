@@ -20,7 +20,7 @@ describe('manager/docker-compose/update', () => {
         upgrade,
       });
       expect(res).not.toEqual(railsGemfile);
-      expect(res.includes(upgrade.newValue)).toBe(true);
+      expect(res.includes(upgrade.newValue)).toContain(true);
     });
     it('returns same', () => {
       // gem "rack-cache", "~> 1.2"
